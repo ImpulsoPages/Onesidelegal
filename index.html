@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oneside — Firma con la tranquilidad de que ya lo revisaron</title>
-<meta name="description" content="Oneside by Marchena Consultores: cuéntanos sobre tu contrato, elige tu plan y coordinamos por WhatsApp la revisión antes de que firmes, en máximo 3 días hábiles.">
+<meta name="description" content="Oneside by Marchena Consultores: cuéntanos sobre tu contrato y coordinamos por WhatsApp la revisión antes de que firmes, en máximo 3 días hábiles.">
 <style>
 :root{
   --white:#FFFFFF;
@@ -154,6 +154,13 @@ header{
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 @media (max-width:920px){.steps{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.steps{grid-template-columns:1fr;}}
+.productos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media (max-width:920px){.productos-grid{grid-template-columns:1fr;}}
+.producto-card.destacado{border-color:var(--turqui-700);box-shadow:0 20px 40px -18px rgba(10,46,77,.25);}
+.producto-badge{
+  display:inline-block;margin-bottom:14px;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+  background:var(--turqui-800);color:#fff;padding:4px 10px;border-radius:100px;
+}
 .step{
   background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);
   padding:26px 22px;transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
@@ -212,40 +219,6 @@ select:focus, input:focus, textarea:focus{border-color:var(--turqui-600);}
   line-height:1.5;cursor:pointer;
 }
 .checkbox-row input{margin-top:3px;flex:none;width:16px;height:16px;accent-color:var(--turqui-700);cursor:pointer;}
-.plan-radio-group{display:flex;flex-direction:column;gap:12px;margin-top:6px;}
-.plan-radio{
-  display:flex;align-items:flex-start;gap:14px;border:1.5px solid var(--gray-200);border-radius:14px;
-  padding:16px 16px;cursor:pointer;transition:border-color .2s, background .2s, transform .2s;
-  position:relative;
-}
-.plan-radio:hover{border-color:var(--turqui-500);transform:translateY(-1px);}
-.plan-radio.selected{border-color:var(--turqui-700);background:var(--turqui-050);box-shadow:0 6px 18px -10px rgba(10,46,77,.3);}
-.plan-radio input{position:absolute;opacity:0;pointer-events:none;}
-.plan-radio .dot{
-  width:18px;height:18px;border-radius:50%;border:1.6px solid var(--gray-200);flex:none;margin-top:2px;
-  display:flex;align-items:center;justify-content:center;transition:border-color .2s;
-}
-.plan-radio.selected .dot{border-color:var(--turqui-700);}
-.plan-radio .dot::after{
-  content:"";width:9px;height:9px;border-radius:50%;background:var(--turqui-700);transform:scale(0);transition:transform .2s;
-}
-.plan-radio.selected .dot::after{transform:scale(1);}
-.plan-radio .pr-body{flex:1;}
-.plan-radio .pr-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;}
-.plan-radio .pr-name{font-weight:700;font-size:14.5px;color:var(--turqui-900);}
-.plan-radio .pr-price{font-weight:700;font-size:14.5px;color:var(--turqui-700);white-space:nowrap;}
-.plan-radio .pr-desc{font-size:13px;color:var(--gray-600);margin-top:3px;}
-.plan-radio .pr-badge{
-  display:inline-block;margin-left:8px;font-size:10px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;
-  background:var(--turqui-800);color:#fff;padding:2px 8px;border-radius:100px;vertical-align:middle;
-}
-.plan-chosen-banner{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  background:var(--turqui-050);border:1px solid var(--turqui-100);border-radius:12px;padding:12px 14px;
-  font-size:13px;color:var(--turqui-800);margin-bottom:18px;
-}
-.plan-chosen-banner strong{color:var(--turqui-900);}
-.plan-chosen-banner button{font-size:12px;font-weight:600;color:var(--turqui-600);text-decoration:underline;}
 .funnel-card.hide-form .funnel-body{display:none;}
 .success-state{display:none;text-align:center;padding:12px 4px 4px;}
 .success-state.show{display:block;}
@@ -285,45 +258,6 @@ select:focus, input:focus, textarea:focus{border-color:var(--turqui-600);}
   display:inline-block;margin-top:10px;font-size:11.5px;font-weight:700;letter-spacing:.02em;
   color:var(--amber);background:#FBF1E3;padding:4px 9px;border-radius:6px;
 }
-.toggle-wrap{display:flex;align-items:center;justify-content:center;gap:14px;margin:8px 0 46px;}
-.toggle-label{font-size:14.5px;font-weight:600;color:var(--gray-400);transition:color .25s;}
-.toggle-label.active{color:var(--turqui-900);}
-.switch{
-  width:52px;height:30px;background:var(--turqui-800);border-radius:100px;position:relative;flex:none;
-  transition:background .25s;
-}
-.switch .knob{
-  position:absolute;top:3px;left:3px;width:24px;height:24px;background:#fff;border-radius:50%;
-  transition:transform .3s var(--ease);box-shadow:0 2px 5px rgba(0,0,0,.25);
-}
-.switch.on .knob{transform:translateX(22px);}
-.save-pill{
-  font-size:11.5px;font-weight:700;background:var(--turqui-100);color:var(--turqui-700);
-  padding:4px 9px;border-radius:100px;
-}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;}
-@media (max-width:940px){.plans{grid-template-columns:1fr;max-width:420px;margin:0 auto;}}
-.plan{
-  border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:30px 26px;background:var(--white);
-  display:flex;flex-direction:column;transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
-  position:relative;
-}
-.plan:hover{transform:translateY(-6px);box-shadow:0 24px 46px -22px rgba(10,46,77,.25);}
-.plan.popular{border-color:var(--turqui-700);box-shadow:0 24px 46px -22px rgba(10,46,77,.3);}
-.plan-badge{
-  position:absolute;top:-13px;left:26px;background:var(--turqui-800);color:#fff;font-size:11.5px;font-weight:700;
-  padding:5px 12px;border-radius:100px;letter-spacing:.02em;
-}
-.plan-name{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--turqui-600);}
-.plan-price{margin-top:12px;display:flex;align-items:baseline;gap:6px;}
-.plan-price .amt{font-size:32px;font-weight:700;color:var(--turqui-900);letter-spacing:-.02em;}
-.plan-price .per{font-size:13.5px;color:var(--gray-400);}
-.plan-desc{margin-top:8px;font-size:14px;color:var(--gray-600);min-height:38px;}
-.plan-feat{margin-top:22px;display:flex;flex-direction:column;gap:12px;flex:1;}
-.plan-feat li{display:flex;gap:10px;font-size:14px;color:var(--gray-600);align-items:flex-start;}
-.plan-feat svg{flex:none;margin-top:2px;}
-.plan .btn{margin-top:26px;}
-.price-note{margin-top:22px;text-align:center;font-size:12.5px;color:var(--gray-400);}
 .social{background:var(--paper);}
 .client-logos{display:flex;flex-wrap:wrap;gap:24px;align-items:stretch;justify-content:center;margin-top:8px;}
 .client-logo{
@@ -334,9 +268,10 @@ select:focus, input:focus, textarea:focus{border-color:var(--turqui-600);}
 }
 .client-logo:hover{transform:translateY(-4px);box-shadow:0 20px 40px -22px rgba(10,46,77,.25);border-color:var(--turqui-100);}
 .client-logo-mark{
-  width:100%;height:56px;border-radius:10px;background:var(--turqui-050);border:1.5px dashed var(--turqui-100);
-  display:flex;align-items:center;justify-content:center;
+  width:100%;height:56px;border-radius:10px;background:var(--white);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
+.client-logo-img{max-width:100%;max-height:100%;object-fit:contain;}
 .client-logo-name{font-weight:700;font-size:14.5px;color:var(--turqui-900);letter-spacing:.01em;}
 .trust-seal{
   margin-top:44px;display:flex;align-items:center;justify-content:center;gap:12px;
@@ -351,7 +286,7 @@ select:focus, input:focus, textarea:focus{border-color:var(--turqui-600);}
 .cta-final .btn-primary{background:#fff;color:var(--turqui-900);margin-top:26px;}
 .cta-final .btn-primary:hover{background:var(--turqui-050);}
 footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;}
 @media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
 .foot-grid h4{font-size:13px;font-weight:700;color:var(--turqui-900);margin-bottom:14px;}
 .foot-grid li{margin-bottom:9px;font-size:13.5px;color:var(--gray-600);}
@@ -403,8 +338,7 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
       <span><span class="word">Oneside</span><span class="sub">by Marchena Consultores</span></span>
     </div>
     <nav class="nav-links">
-      <a href="#proceso">Cómo funciona</a>
-      <a href="#precios">Precios</a>
+      <a href="#productos">Productos</a>
       <a href="#almacenamiento">Seguridad</a>
       <a href="#faq">Preguntas</a>
       <a href="#footer">Contacto</a>
@@ -420,10 +354,10 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
     <div>
       <span class="eyebrow">Revisión legal en máx. 3 días hábiles</span>
       <h1 style="margin-top:18px;">Firma con la tranquilidad de que <em>ya lo revisó</em> un experto.</h1>
-      <p class="hero-sub">Cuéntanos sobre tu contrato, elige tu plan y coordinamos contigo por WhatsApp para revisarlo antes de que firmes. Criterio jurídico de Marchena Consultores.</p>
+      <p class="hero-sub">Cuéntanos sobre tu contrato y coordinamos contigo por WhatsApp para revisarlo antes de que firmes. Criterio jurídico de Marchena Consultores.</p>
       <div class="hero-ctas">
         <a href="#subir" class="btn btn-primary">Solicita tu revisión</a>
-        <a href="#proceso" class="btn btn-ghost">Ver cómo funciona</a>
+        <a href="#productos" class="btn btn-ghost">Ver productos</a>
       </div>
       <div class="hero-badges">
         <div class="hero-badge"><span class="dot"></span>Sin jerga legal, todo en español claro</div>
@@ -460,45 +394,35 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
   </div>
 </section>
 
-<section class="proceso" id="proceso">
+<section class="proceso" id="productos">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Cómo funciona</span>
-      <h2 style="margin-top:14px;">Cuatro pasos, sin complicaciones.</h2>
-      <p>Nada de portales confusos ni de esperar semanas por una respuesta.</p>
+      <span class="eyebrow">Productos</span>
+      <h2 style="margin-top:14px;">Qué recibes cuando trabajas con nosotros.</h2>
+      <p>Claro, directo, y con la opción de ir un paso más allá si lo necesitas.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="num">01</div>
-        <div class="step-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 15V3M12 3L7 8M12 3l5 5" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3>Cuéntanos quién eres</h3>
-        <p>Tus datos básicos de contacto, para poder enviarte el informe.</p>
-      </div>
-      <div class="step reveal">
-        <div class="num">02</div>
+    <div class="productos-grid">
+      <div class="step producto-card reveal">
         <div class="step-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>
         </div>
-        <h3>Elige tu plan</h3>
-        <p>Revisión individual o suscripción, según cuántos contratos manejes.</p>
+        <h3>Informe de cambios</h3>
+        <p>Un listado claro de las cláusulas que deberías ajustar antes de firmar, con la razón y la recomendación para cada una.</p>
       </div>
-      <div class="step reveal">
-        <div class="num">03</div>
+      <div class="step producto-card reveal">
         <div class="step-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#12395C" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="#12395C" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 15V3M12 3L7 8M12 3l5 5" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3>Coordinamos por WhatsApp</h3>
-        <p>Te contactamos para recibir tu contrato de forma segura y arrancar la revisión.</p>
+        <h3>Concepto jurídico</h3>
+        <p>Una explicación en español claro de qué dice tu contrato y qué debería tener como mínimo, sin jerga legal.</p>
       </div>
-      <div class="step reveal">
-        <div class="num">04</div>
+      <div class="step producto-card destacado reveal">
+        <span class="producto-badge">Servicio adicional</span>
         <div class="step-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M14 6l6 6-6 6" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3>Firmas con confianza</h3>
-        <p>Recibes un informe breve y accionable con lo que hay que ajustar.</p>
+        <h3>Redacción de contrato desde cero</h3>
+        <p>Si aún no tienes un contrato, lo redactamos por ti desde el inicio, adaptado a tu caso.</p>
       </div>
     </div>
     <div class="sla-strip reveal">
@@ -513,7 +437,7 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
     <div class="funnel-copy reveal">
       <span class="eyebrow">Solicita tu revisión</span>
       <h2 style="margin-top:14px;">Empieza aquí. Toma menos de dos minutos.</h2>
-      <p>Completa tus datos y elige el plan que más te sirve. Te contactamos por WhatsApp para coordinar el envío de tu contrato.</p>
+      <p>Completa tus datos y cuéntanos sobre tu contrato. Te contactamos por WhatsApp para coordinar el envío y darte una cotización según su extensión y complejidad.</p>
       <ul class="funnel-points">
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Solo llena el formulario, sin adjuntar nada</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Te contactamos por WhatsApp para recibir tu contrato</li>
@@ -525,7 +449,7 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
       <div class="funnel-body">
 
         <div class="step-panel" id="panelDatos">
-          <div class="step-indicator"><span class="step-dot"></span><span>Paso 1 de 3 · Tus datos</span></div>
+          <div class="step-indicator"><span class="step-dot"></span><span>Paso 1 de 2 · Tus datos</span></div>
           <form id="datosForm" novalidate>
             <div class="field">
               <label for="nombreSolicitante">Nombre completo</label>
@@ -553,54 +477,11 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
           </form>
         </div>
 
-        <div class="step-panel" id="panelPlan" style="display:none;">
-          <div class="step-indicator">
-            <span class="step-dot"></span>
-            <span>Paso 2 de 3 · Elige tu plan</span>
-            <button type="button" class="step-back" id="backToDatos">Editar mis datos</button>
-          </div>
-          <form id="planForm" novalidate>
-            <div class="plan-radio-group">
-              <label class="plan-radio" data-plan="individual">
-                <input type="radio" name="planElegido" value="individual">
-                <span class="dot"></span>
-                <span class="pr-body">
-                  <span class="pr-top"><span class="pr-name">Revisión individual</span><span class="pr-price">$99.000 COP</span></span>
-                  <span class="pr-desc">Pago único. Ideal para revisar un solo contrato.</span>
-                </span>
-              </label>
-              <label class="plan-radio" data-plan="pyme">
-                <input type="radio" name="planElegido" value="pyme">
-                <span class="dot"></span>
-                <span class="pr-body">
-                  <span class="pr-top"><span class="pr-name">Plan Pyme <span class="pr-badge">Más popular</span></span><span class="pr-price">$349.000 COP/mes</span></span>
-                  <span class="pr-desc">Revisiones ilimitadas, prioridad en la cola.</span>
-                </span>
-              </label>
-              <label class="plan-radio" data-plan="empresa">
-                <input type="radio" name="planElegido" value="empresa">
-                <span class="dot"></span>
-                <span class="pr-body">
-                  <span class="pr-top"><span class="pr-name">Plan Empresa</span><span class="pr-price">A medida</span></span>
-                  <span class="pr-desc">Suscripción anual, acceso directo a Marchena Consultores.</span>
-                </span>
-              </label>
-            </div>
-            <div class="form-error" id="planError"></div>
-            <button type="submit" class="btn btn-primary btn-block" style="margin-top:20px;">Continuar</button>
-          </form>
-        </div>
-
         <div class="step-panel" id="panelDetalles" style="display:none;">
           <div class="step-indicator">
             <span class="step-dot"></span>
-            <span>Paso 3 de 3 · Sobre tu contrato</span>
-            <button type="button" class="step-back" id="backToPlan">Cambiar plan</button>
-          </div>
-
-          <div class="plan-chosen-banner" id="planChosenBanner">
-            Plan seleccionado: <strong id="planChosenLabel"></strong>
-            <button type="button" id="editPlanLink">Cambiar</button>
+            <span>Paso 2 de 2 · Sobre tu contrato</span>
+            <button type="button" class="step-back" id="backToDatos">Editar mis datos</button>
           </div>
 
           <form id="detallesForm" novalidate>
@@ -685,80 +566,20 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
   </div>
 </section>
 
-<section class="precios" id="precios">
-  <div class="container">
-    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
-      <span class="eyebrow">Precios</span>
-      <h2 style="margin-top:14px;">Un plan para cada volumen de contratos.</h2>
-      <p style="margin-left:auto;margin-right:auto;">Precios en pesos colombianos (COP). Sin letra pequeña.</p>
-    </div>
-
-    <div class="toggle-wrap reveal">
-      <span class="toggle-label active" id="labelMensual">Mensual</span>
-      <button type="button" class="switch" id="billingSwitch" aria-label="Cambiar entre pago mensual y anual"><span class="knob"></span></button>
-      <span class="toggle-label" id="labelAnual">Anual</span>
-      <span class="save-pill">Ahorra 15%</span>
-    </div>
-
-    <div class="plans reveal">
-      <div class="plan">
-        <div class="plan-name">Revisión individual</div>
-        <div class="plan-price"><span class="amt">$99.000</span><span class="per">COP / contrato</span></div>
-        <p class="plan-desc">Pago único. Ideal si necesitas revisar un solo contrato.</p>
-        <ul class="plan-feat">
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>1 contrato revisado</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Informe de modificaciones</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Entrega en hasta 3 días hábiles</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Entrega express: 48h (+$40.000) o 24h (+$70.000)</li>
-        </ul>
-        <a href="#subir" class="btn btn-ghost btn-block">Revisar un contrato</a>
-      </div>
-
-      <div class="plan popular">
-        <span class="plan-badge">Más popular</span>
-        <div class="plan-name">Plan Pyme</div>
-        <div class="plan-price"><span class="amt" id="pymePrice">$349.000</span><span class="per">COP / mes</span></div>
-        <p class="plan-desc" id="pymeDesc">Suscripción mensual, cancela cuando quieras.</p>
-        <ul class="plan-feat">
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Revisiones ilimitadas</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Prioridad en la cola de revisión</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Entrega en hasta 3 días hábiles</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Opción de entrega urgente</li>
-        </ul>
-        <a href="#subir" class="btn btn-primary btn-block">Empezar con Plan Pyme</a>
-      </div>
-
-      <div class="plan">
-        <div class="plan-name">Plan Empresa</div>
-        <div class="plan-price"><span class="amt">A medida</span></div>
-        <p class="plan-desc">Suscripción anual con condiciones ajustadas a tu volumen.</p>
-        <ul class="plan-feat">
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Revisiones ilimitadas</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Acceso directo a Marchena Consultores</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>Informes recurrentes</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#12395C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#12395C" stroke-width="2"/></svg>SLA prioritario</li>
-        </ul>
-        <a href="#footer" class="btn btn-ghost btn-block">Hablemos</a>
-      </div>
-    </div>
-    <p class="price-note">Precios de referencia en COP, sujetos a confirmación.</p>
-  </div>
-</section>
-
 <section class="social">
   <div class="container">
     <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
       <span class="eyebrow">Confianza</span>
-      <h2 style="margin-top:14px;">Empresas que han confiado en nosotros.</h2>
-      <p style="margin-left:auto;margin-right:auto;">Cada solicitud que recibe Oneside es atendida por nuestro equipo de abogados de Marchena Consultores.</p>
+      <h2 style="margin-top:14px;">Respaldado por un equipo legal real.</h2>
+      <p style="margin-left:auto;margin-right:auto;">Cada solicitud que recibe Marchena Consultores es atendida por nuestro equipo de abogados.</p>
     </div>
     <div class="client-logos reveal">
       <div class="client-logo">
-        <div class="client-logo-mark">< "SERO.JPG" ></div>
-        <span class="client-logo-name">SERO SA.S </span>
+        <div class="client-logo-mark"><img src="SERO.JPG" alt="Logo de SERO S.A.S" class="client-logo-img"></div>
+        <span class="client-logo-name">SERO S.A.S</span>
       </div>
       <div class="client-logo">
-        <div class="client-logo-mark">< "bestfinder.jpeg" ></div>
+        <div class="client-logo-mark"><img src="bestfinder.jpeg" alt="Logo de BESTFINDER S.A.S" class="client-logo-img"></div>
         <span class="client-logo-name">BESTFINDER S.A.S</span>
       </div>
     </div>
@@ -786,11 +607,11 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
       </div>
       <div class="acc-item">
         <button class="acc-head" type="button">¿Qué pasa después de enviar el formulario?<span class="plus"></span></button>
-        <div class="acc-body"><div class="acc-body-inner">Tus datos llegan directo a nuestro equipo junto con el plan elegido. Te contactamos por WhatsApp en poco tiempo para coordinar el envío de tu contrato y arrancar la revisión.</div></div>
+        <div class="acc-body"><div class="acc-body-inner">Tus datos llegan directo a nuestro equipo. Te contactamos por WhatsApp en poco tiempo para coordinar el envío de tu contrato y arrancar la revisión.</div></div>
       </div>
       <div class="acc-item">
-        <button class="acc-head" type="button">¿Cuál es la diferencia entre el plan individual y la suscripción?<span class="plus"></span></button>
-        <div class="acc-body"><div class="acc-body-inner">La revisión individual es un pago único por contrato. El Plan Pyme y el Plan Empresa son suscripciones con revisiones ilimitadas y prioridad en la cola.</div></div>
+        <button class="acc-head" type="button">¿Cuánto cuesta la revisión?<span class="plus"></span></button>
+        <div class="acc-body"><div class="acc-body-inner">Depende de la extensión y complejidad de tu contrato. Te damos una cotización exacta apenas lo revisamos, por WhatsApp.</div></div>
       </div>
     </div>
   </div>
@@ -822,17 +643,8 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
       <div>
         <h4>Producto</h4>
         <ul>
-          <li><a href="#proceso">Cómo funciona</a></li>
-          <li><a href="#precios">Precios</a></li>
+          <li><a href="#productos">Productos</a></li>
           <li><a href="#almacenamiento">Seguridad</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Términos y condiciones</a></li>
-          <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Aviso legal</a></li>
         </ul>
       </div>
       <div>
@@ -858,13 +670,7 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
 
 <script>
 const CONFIG = {
-  WEB3FORMS_ACCESS_KEY: 'fd647b26-a874-418d-955a-ad9b41ea53d1' 
-};
-
-const PLAN_LABELS = {
-  individual: 'Revisión individual — $99.000 COP',
-  pyme: 'Plan Pyme — $349.000 COP/mes',
-  empresa: 'Plan Empresa — a medida'
+  WEB3FORMS_ACCESS_KEY: 'fd647b26-a874-418d-955a-ad9b41ea53d1'
 };
 
 const revealEls = document.querySelectorAll('.reveal');
@@ -893,33 +699,11 @@ function setupAccordion(listId){
 setupAccordion('storageAcc');
 setupAccordion('faqAcc');
 
-const billingSwitch = document.getElementById('billingSwitch');
-const labelMensual = document.getElementById('labelMensual');
-const labelAnual = document.getElementById('labelAnual');
-const pymePrice = document.getElementById('pymePrice');
-const pymeDesc = document.getElementById('pymeDesc');
-let annual = false;
-billingSwitch.addEventListener('click', ()=>{
-  annual = !annual;
-  billingSwitch.classList.toggle('on', annual);
-  labelMensual.classList.toggle('active', !annual);
-  labelAnual.classList.toggle('active', annual);
-  if(annual){
-    pymePrice.textContent = '$299.000';
-    pymeDesc.textContent = 'Facturado anualmente. Ahorras 15% frente al mensual.';
-  } else {
-    pymePrice.textContent = '$349.000';
-    pymeDesc.textContent = 'Suscripción mensual, cancela cuando quieras.';
-  }
-});
-
 let currentTicket = null;
 let lastMeta = null;
 let solicitante = { nombre:'', id:'', direccion:'', correo:'' };
-let planElegido = null;
 
 const panelDatos = document.getElementById('panelDatos');
-const panelPlan = document.getElementById('panelPlan');
 const panelDetalles = document.getElementById('panelDetalles');
 const datosForm = document.getElementById('datosForm');
 const datosError = document.getElementById('datosError');
@@ -929,13 +713,6 @@ const direccionInput = document.getElementById('direccionSolicitante');
 const emailInput = document.getElementById('emailContacto');
 const consentCheck = document.getElementById('consentCheck');
 const backToDatosBtn = document.getElementById('backToDatos');
-
-const planForm = document.getElementById('planForm');
-const planError = document.getElementById('planError');
-const planRadios = document.querySelectorAll('.plan-radio');
-const backToPlanBtn = document.getElementById('backToPlan');
-const planChosenLabel = document.getElementById('planChosenLabel');
-const editPlanLink = document.getElementById('editPlanLink');
 
 const formError = document.getElementById('formError');
 const detallesForm = document.getElementById('detallesForm');
@@ -952,8 +729,6 @@ const downloadReceiptBtn = document.getElementById('downloadReceiptBtn');
 
 function showDatosError(msg){ datosError.textContent = msg; datosError.classList.add('show'); }
 function clearDatosError(){ datosError.textContent=''; datosError.classList.remove('show'); }
-function showPlanError(msg){ planError.textContent = msg; planError.classList.add('show'); }
-function clearPlanError(){ planError.textContent=''; planError.classList.remove('show'); }
 function showError(msg){ formError.textContent = msg; formError.classList.add('show'); }
 function clearError(){ formError.textContent=''; formError.classList.remove('show'); }
 
@@ -981,43 +756,12 @@ datosForm.addEventListener('submit', (e)=>{
 
   solicitante = { nombre, id: idVal, direccion, correo };
   panelDatos.style.display = 'none';
-  panelPlan.style.display = 'block';
-});
-
-backToDatosBtn.addEventListener('click', ()=>{
-  panelPlan.style.display = 'none';
-  panelDatos.style.display = 'block';
-});
-
-planRadios.forEach(label=>{
-  label.addEventListener('click', ()=>{
-    planRadios.forEach(l=>l.classList.remove('selected'));
-    label.classList.add('selected');
-    label.querySelector('input').checked = true;
-  });
-});
-
-planForm.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  clearPlanError();
-  const checked = document.querySelector('input[name="planElegido"]:checked');
-  if(!checked){
-    showPlanError('Selecciona un plan para continuar.');
-    return;
-  }
-  planElegido = checked.value;
-  planChosenLabel.textContent = PLAN_LABELS[planElegido] || planElegido;
-  panelPlan.style.display = 'none';
   panelDetalles.style.display = 'block';
 });
 
-backToPlanBtn.addEventListener('click', ()=>{
+backToDatosBtn.addEventListener('click', ()=>{
   panelDetalles.style.display = 'none';
-  panelPlan.style.display = 'block';
-});
-editPlanLink.addEventListener('click', ()=>{
-  panelDetalles.style.display = 'none';
-  panelPlan.style.display = 'block';
+  panelDatos.style.display = 'block';
 });
 
 async function enviarCorreoNotificacion(payload){
@@ -1033,7 +777,6 @@ async function enviarCorreoNotificacion(payload){
     replyto: payload.correo,
     'Identificacion': payload.id,
     'Direccion': payload.direccion,
-    'Plan elegido': PLAN_LABELS[payload.plan] || payload.plan,
     'Tipo de contrato': payload.tipoContrato || 'No especificado',
     'Descripcion del documento': payload.descripcion || '(sin descripcion)',
     'Numero de referencia': payload.ticket
@@ -1066,7 +809,6 @@ detallesForm.addEventListener('submit', async (e)=>{
 
   lastMeta = {
     ticket, fecha, tipoContratoHint: tipoContrato, descripcion,
-    plan: planElegido,
     nombre: solicitante.nombre, id: solicitante.id, direccion: solicitante.direccion, correo: solicitante.correo
   };
 
@@ -1076,7 +818,6 @@ detallesForm.addEventListener('submit', async (e)=>{
       id: solicitante.id,
       direccion: solicitante.direccion,
       correo: solicitante.correo,
-      plan: planElegido,
       tipoContrato,
       descripcion,
       ticket
@@ -1176,7 +917,6 @@ function descargarComprobantePDF(){
     'Solicitante: ' + (lastMeta.nombre || '-') + ' (' + (lastMeta.id || '-') + ')',
     'Direccion: ' + (lastMeta.direccion || '-'),
     'Correo de contacto: ' + (lastMeta.correo || '-'),
-    'Plan elegido: ' + (PLAN_LABELS[lastMeta.plan] || lastMeta.plan || '-'),
     'Tipo de contrato indicado: ' + (lastMeta.tipoContratoHint || 'No especificado'),
     'Fecha de la solicitud: ' + lastMeta.fecha,
     'Tiempo maximo de entrega del informe validado: 3 dias habiles'
@@ -1210,15 +950,12 @@ resetFormBtn.addEventListener('click', ()=>{
   detallesForm.reset();
   datosForm.reset();
   lastMeta = null;
-  planElegido = null;
-  planRadios.forEach(l=>l.classList.remove('selected'));
   submitBtn.disabled = false;
   submitBtn.textContent = 'Enviar solicitud';
   successState.classList.remove('show');
   funnelCard.classList.remove('hide-form');
-  clearError(); clearDatosError(); clearPlanError();
+  clearError(); clearDatosError();
   panelDetalles.style.display = 'none';
-  panelPlan.style.display = 'none';
   panelDatos.style.display = 'block';
 });
 </script>
