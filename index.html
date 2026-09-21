@@ -460,6 +460,11 @@ footer{padding:60px 0 34px;border-top:1px solid var(--gray-100);}
               <input type="text" id="idSolicitante" placeholder="Cédula, NIT o documento de identidad">
             </div>
             <div class="field">
+              <label for="telefonoSolicitante">Número de teléfono</label>
+              <input type="tel" id="telefonoSolicitante" placeholder="Ej: 3127107669" autocomplete="tel" inputmode="tel">
+              <span class="field-hint">Te contactamos por WhatsApp a este número para coordinar el envío de tu contrato.</span>
+            </div>
+            <div class="field">
               <label for="direccionSolicitante">Dirección</label>
               <input type="text" id="direccionSolicitante" placeholder="Dirección de residencia o de la empresa">
             </div>
@@ -701,7 +706,7 @@ setupAccordion('faqAcc');
 
 let currentTicket = null;
 let lastMeta = null;
-let solicitante = { nombre:'', id:'', direccion:'', correo:'' };
+let solicitante = { nombre:'', id:'', telefono:'', direccion:'', correo:'' };
 
 const panelDatos = document.getElementById('panelDatos');
 const panelDetalles = document.getElementById('panelDetalles');
@@ -709,6 +714,7 @@ const datosForm = document.getElementById('datosForm');
 const datosError = document.getElementById('datosError');
 const nombreInput = document.getElementById('nombreSolicitante');
 const idInput = document.getElementById('idSolicitante');
+const telefonoInput = document.getElementById('telefonoSolicitante');
 const direccionInput = document.getElementById('direccionSolicitante');
 const emailInput = document.getElementById('emailContacto');
 const consentCheck = document.getElementById('consentCheck');
@@ -737,12 +743,19 @@ datosForm.addEventListener('submit', (e)=>{
   clearDatosError();
   const nombre = nombreInput.value.trim();
   const idVal = idInput.value.trim();
+  const telefono = telefonoInput.value.trim();
   const direccion = direccionInput.value.trim();
   const correo = emailInput.value.trim();
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+  const telefonoDigits = telefono.replace(/[^\d]/g, '');
+  const telefonoOk = telefonoDigits.length >= 7 && telefonoDigits.length <= 15;
 
-  if(!nombre || !idVal || !direccion || !correo){
+  if(!nombre || !idVal || !telefono || !direccion || !correo){
     showDatosError('Completa todos los campos para continuar.');
+    return;
+  }
+  if(!telefonoOk){
+    showDatosError('Ingresa un número de teléfono válido.');
     return;
   }
   if(!emailOk){
@@ -754,7 +767,7 @@ datosForm.addEventListener('submit', (e)=>{
     return;
   }
 
-  solicitante = { nombre, id: idVal, direccion, correo };
+  solicitante = { nombre, id: idVal, telefono, direccion, correo };
   panelDatos.style.display = 'none';
   panelDetalles.style.display = 'block';
 });
@@ -776,6 +789,7 @@ async function enviarCorreoNotificacion(payload){
     email: payload.correo,
     replyto: payload.correo,
     'Identificacion': payload.id,
+    'Telefono': payload.telefono,
     'Direccion': payload.direccion,
     'Tipo de contrato': payload.tipoContrato || 'No especificado',
     'Descripcion del documento': payload.descripcion || '(sin descripcion)',
@@ -809,13 +823,14 @@ detallesForm.addEventListener('submit', async (e)=>{
 
   lastMeta = {
     ticket, fecha, tipoContratoHint: tipoContrato, descripcion,
-    nombre: solicitante.nombre, id: solicitante.id, direccion: solicitante.direccion, correo: solicitante.correo
+    nombre: solicitante.nombre, id: solicitante.id, telefono: solicitante.telefono, direccion: solicitante.direccion, correo: solicitante.correo
   };
 
   try{
     await enviarCorreoNotificacion({
       nombre: solicitante.nombre,
       id: solicitante.id,
+      telefono: solicitante.telefono,
       direccion: solicitante.direccion,
       correo: solicitante.correo,
       tipoContrato,
@@ -915,6 +930,7 @@ function descargarComprobantePDF(){
   const lines = [
     'Numero de referencia: ' + lastMeta.ticket,
     'Solicitante: ' + (lastMeta.nombre || '-') + ' (' + (lastMeta.id || '-') + ')',
+    'Telefono: ' + (lastMeta.telefono || '-'),
     'Direccion: ' + (lastMeta.direccion || '-'),
     'Correo de contacto: ' + (lastMeta.correo || '-'),
     'Tipo de contrato indicado: ' + (lastMeta.tipoContratoHint || 'No especificado'),
